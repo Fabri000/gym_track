@@ -1,24 +1,49 @@
 import 'dart:io' as io;
-
 import 'package:gym_track/Objects/exercises.dart';
 
-class FileManager {
-  String pathwin = 'C:/Users/Public/GymTrakerData';
+abstract class FileManager {
   String filename = 'ExerciceHistory.csv';
   String header = 'date,exercise,reps,weight (Kg),difficulty,rest_time(sec)';
 
-  FileManager() {
-    if (!io.Directory(pathwin).existsSync()) {
-      io.Directory(pathwin).createSync();
-      io.File('$pathwin/$filename').createSync();
-      io.File('$pathwin/$filename').writeAsStringSync(header);
-    } else if (!io.File('$pathwin/$filename').existsSync()) {
-      io.File('$pathwin/$filename').createSync();
-      io.File('$pathwin/$filename').writeAsStringSync(header);
+  void addExercise(Exercise exercise);
+}
+
+class WinFileManager extends FileManager {
+  String path = 'C:/Users/Public/GymTrakerData';
+
+  WinFileManager() {
+    if (!io.Directory(path).existsSync()) {
+      io.Directory(path).createSync();
+      io.File('$path/$filename').createSync();
+      io.File('$path/$filename').writeAsStringSync(header);
+    } else if (!io.File('$path/$filename').existsSync()) {
+      io.File('$path/$filename').createSync();
+      io.File('$path/$filename').writeAsStringSync(header);
     }
   }
 
+  @override
   void addExercise(Exercise exercise) {
-    io.File('$pathwin/$filename').writeAsStringSync(exercise.csvformat());
+    io.File('$path/$filename').writeAsStringSync(exercise.csvformat());
+  }
+}
+
+class LxFileManager extends FileManager {
+  String path = '';
+
+  LxFileManager() {
+    if (!io.Directory(path).existsSync()) {
+      io.Directory(path).createSync();
+      io.File('$path/$filename').createSync();
+      io.File('$path/$filename').writeAsStringSync(header);
+    } else if (!io.File('$path/$filename').existsSync()) {
+      io.File('$path/$filename').createSync();
+      io.File('$path/$filename').writeAsStringSync(header);
+    }
+  }
+
+  @override
+  void addExercise(Exercise exercise) {
+    io.File('$path/$filename').writeAsStringSync(exercise.csvformat());
   }
 }
