@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:gym_track/Objects/Enums/exercises_difficulty.dart';
 
 class Exercise {
