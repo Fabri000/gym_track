@@ -3,8 +3,8 @@ import 'package:gym_track/Objects/exercises.dart';
 
 class FileManager {
   static String win_path =
-      '${io.Platform.environment['APPDATA']}\\GymTrakerData';
-  static String lx_path = '${io.Platform.environment['HOME']}/GymTrakerData';
+      '${io.Platform.environment['APPDATA']}\GymTrakerData';
+  static String lx_path = '${io.Platform.environment['HOME']}/.GymTrakerData';
   String filename = 'ExerciceHistory.csv';
   String header = 'date,exercise,reps,weight (Kg),difficulty,rest_time(sec)\n';
   static FileManager? _instance = null;
