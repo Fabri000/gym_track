@@ -1,23 +1,20 @@
-import 'dart:ffi';
 import 'package:gym_track/Objects/Enums/exercises_difficulty.dart';
 
 class Exercise {
-  String data;
+  String? data;
   String exercisename;
-  Int numberrep;
-  Double weight;
+  int numberrep;
+  double weight;
   Difficulty exercisedifficulty;
-  Int resttime;
+  int resttime;
 
-  Exercise(
-      {required this.data,
-      required this.exercisename,
-      required this.numberrep,
-      required this.weight,
-      required this.exercisedifficulty,
-      required this.resttime});
+  Exercise(this.exercisename, this.numberrep, this.weight, this.resttime,
+      this.exercisedifficulty) {
+    DateTime today = DateTime.now();
+    data = '${today.day}-${today.month}-${today.year}';
+  }
 
   String csvformat() {
-    return '$data,$exercisename,$numberrep,$weight,$exercisedifficulty,$resttime';
+    return '$data,$exercisename,$numberrep,$weight,${exercisedifficulty.toShortString()},$resttime\n';
   }
 }
