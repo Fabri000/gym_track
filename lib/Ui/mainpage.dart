@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gym_track/FileManager/file_manager.dart';
 import 'package:gym_track/Objects/exercises.dart';
 import 'package:gym_track/Ui/UiElements/difficultyselector.dart';
-
 import 'UiElements/textinput.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,7 +15,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     OutlinedButton insertbutton = OutlinedButton(
         onPressed: () {
-          FileManager.getinstance()?.addExercise(Exercise(
+          FileManager.instance.addExercise(Exercise(
               exercisenamecontroller.text,
               int.parse(numberofrepscontroller.text),
               double.parse(weightcontroller.text),

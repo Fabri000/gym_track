@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gym_track/FileManager/file_manager.dart';
 import 'package:gym_track/Ui/mainpage.dart';
 
 void main() {
   runApp(const MyApp());
-  FileManager.getinstance();
 }
 
 class MyApp extends StatelessWidget {
