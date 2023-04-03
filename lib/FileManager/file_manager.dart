@@ -28,14 +28,13 @@ class FileManager {
 
   String _getpath() {
     if (io.Platform.isWindows) {
-      print(win_path);
       return win_path;
     } else {
-      print(lx_path);
       return lx_path;
     }
   }
 
+//problema qui
   static FileManager? getinstance() {
     _instance ??= FileManager();
     return _instance;

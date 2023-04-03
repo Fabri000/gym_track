@@ -3,6 +3,8 @@ import 'package:gym_track/FileManager/file_manager.dart';
 import 'package:gym_track/Objects/exercises.dart';
 import 'package:gym_track/Ui/UiElements/difficultyselector.dart';
 
+import 'UiElements/textinput.dart';
+
 class MainPage extends StatelessWidget {
   TextEditingController exercisenamecontroller = TextEditingController();
   TextEditingController numberofrepscontroller = TextEditingController();
@@ -12,24 +14,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextField exercisename = TextField(
-      decoration: const InputDecoration(hintText: "Insert exercise name"),
-      controller: exercisenamecontroller,
-    );
-    TextField numberofreps = TextField(
-      decoration: const InputDecoration(hintText: "Insert number of reps"),
-      controller: numberofrepscontroller,
-    );
-    TextField weight = TextField(
-      decoration: const InputDecoration(hintText: "Insert weight(in kg)"),
-      controller: weightcontroller,
-    );
-    TextField resttime = TextField(
-      decoration: const InputDecoration(
-          hintText: "Insert rest between set(in seconds)"),
-      controller: resttimescontroller,
-    );
-
     OutlinedButton insertbutton = OutlinedButton(
         onPressed: () {
           FileManager.getinstance()?.addExercise(Exercise(
@@ -40,31 +24,33 @@ class MainPage extends StatelessWidget {
               difficultySelector.getCurrentDifficulty()));
           resetelement();
         },
-        child: const Text("Insert"));
+        child: const Text(
+          "Insert",
+          style: TextStyle(fontSize: 20),
+        ));
     return Scaffold(
       body: Column(
         children: [
           Container(
             height: 80,
           ),
-          SizedBox(
-            width: 400,
-            child: exercisename,
-          ),
-          SizedBox(
-            width: 400,
-            child: numberofreps,
-          ),
-          SizedBox(
-            width: 400,
-            child: weight,
-          ),
+          TextInput(
+              hint: 'Name of the exercise', controller: exercisenamecontroller),
+          TextInput(
+              hint: 'Number of reps done', controller: numberofrepscontroller),
+          TextInput(hint: 'Weight (in Kg)', controller: weightcontroller),
+          TextInput(
+              hint: 'Rest taken after (in seconds)',
+              controller: resttimescontroller),
           difficultySelector,
-          SizedBox(
-            width: 400,
-            child: resttime,
+          Container(
+            height: 50,
           ),
-          insertbutton
+          SizedBox(
+            width: 140,
+            height: 50,
+            child: insertbutton,
+          )
         ],
       ),
     );
