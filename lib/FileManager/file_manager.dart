@@ -20,13 +20,14 @@ class FileManager {
 
   void addExercise(Exercise exercise) {
     String path = _getpath();
+    print(path);
     io.File('$path/$filename')
         .writeAsStringSync(exercise.csvformat(), mode: io.FileMode.append);
   }
 
   String _getpath() {
     if (io.Platform.isWindows) {
-      return '${io.Platform.environment['APPDATA']}GymTrakerData';
+      return '${io.Platform.environment['APPDATA']}\\GymTrakerData';
     } else {
       return '${io.Platform.environment['HOME']}/.GymTrakerData';
     }
