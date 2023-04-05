@@ -1,80 +1,38 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:gym_track/FileManager/file_manager.dart';
-import 'package:gym_track/Objects/exercises.dart';
-import 'package:gym_track/Ui/UiElements/difficultyselector.dart';
+import 'package:gym_track/Ui/Body/exercisestable.dart';
+import 'package:gym_track/Ui/exerciseinsertiondialog.dart';
 
-class MainPage extends StatelessWidget {
-  TextEditingController exercisenamecontroller = TextEditingController();
-  TextEditingController numberofrepscontroller = TextEditingController();
-  TextEditingController weightcontroller = TextEditingController();
-  DifficultySelector difficultySelector = DifficultySelector();
-  TextEditingController resttimescontroller = TextEditingController();
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    TextField exercisename = TextField(
-      decoration: const InputDecoration(hintText: "Insert exercise name"),
-      controller: exercisenamecontroller,
-    );
-    TextField numberofreps = TextField(
-      decoration: const InputDecoration(hintText: "Insert number of reps"),
-      controller: numberofrepscontroller,
-    );
-    TextField weight = TextField(
-      decoration: const InputDecoration(hintText: "Insert weight(in kg)"),
-      controller: weightcontroller,
-    );
-    TextField resttime = TextField(
-      decoration: const InputDecoration(
-          hintText: "Insert rest between set(in seconds)"),
-      controller: resttimescontroller,
-    );
-
-    OutlinedButton insertbutton = OutlinedButton(
+    OutlinedButton addnew = OutlinedButton(
         onPressed: () {
-          FileManager.instance.addExercise(Exercise(
-              exercisenamecontroller.text,
-              int.parse(numberofrepscontroller.text),
-              double.parse(weightcontroller.text),
-              int.parse(resttimescontroller.text),
-              difficultySelector.getCurrentDifficulty()));
-          resetelement();
+          showDialog(
+              context: context,
+              builder: (BuildContext context) => ExerciseInsertionDialog());
         },
-        child: const Text("Insert"));
+        child: const Text("Add new Exercise",
+            style: TextStyle(fontSize: 20, color: Colors.green)));
+    OutlinedButton quit = OutlinedButton(
+        onPressed: () {
+          exit(0);
+        },
+        child: const Text("Quit",
+            style: TextStyle(fontSize: 20, color: Colors.red)));
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 80,
-          ),
-          SizedBox(
-            width: 400,
-            child: exercisename,
-          ),
-          SizedBox(
-            width: 400,
-            child: numberofreps,
-          ),
-          SizedBox(
-            width: 400,
-            child: weight,
-          ),
-          difficultySelector,
-          SizedBox(
-            width: 400,
-            child: resttime,
-          ),
-          insertbutton
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(child: ExerciseTable()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [addnew, quit],
+            )
+          ],
+        ),
       ),
     );
-  }
-
-  void resetelement() {
-    exercisenamecontroller.clear();
-    weightcontroller.clear();
-    numberofrepscontroller.clear();
-    resttimescontroller.clear();
-    difficultySelector.reset();
   }
 }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io' as io;
 import 'package:gym_track/Objects/exercises.dart';
 
@@ -20,7 +21,6 @@ class FileManager {
 
   void addExercise(Exercise exercise) {
     String path = _getpath();
-    print(path);
     io.File('$path/$filename')
         .writeAsStringSync(exercise.csvformat(), mode: io.FileMode.append);
   }
@@ -31,6 +31,18 @@ class FileManager {
     } else {
       return '${io.Platform.environment['HOME']}/.GymTrakerData';
     }
+  }
+
+  Future<List<String>> readFileLines() async {
+    List<String> lines = [];
+    try {
+      String fileContent =
+          await io.File('${_getpath()}\\$filename').readAsString();
+      lines = const LineSplitter().convert(fileContent);
+    } catch (e) {
+      print("Error reading file: $e");
+    }
+    return lines;
   }
 
   static FileManager get instance => _instance;

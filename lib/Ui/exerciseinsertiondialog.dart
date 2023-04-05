@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gym_track/Ui/exerciseinsertiondialogcontent.dart';
-
 import '../FileManager/file_manager.dart';
 import '../Objects/exercises.dart';
 import 'UiElements/difficultyselector.dart';
