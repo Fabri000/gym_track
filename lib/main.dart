@@ -1,8 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:gym_track/FileManager/file_manager.dart';
 import 'package:gym_track/Ui/mainpage.dart';
+import 'package:window_size/window_size.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (Platform.isWindows || Platform.isLinux) {
+    setWindowTitle('Gym Tracker');
+    setWindowMaxSize(const Size(1920, 1080));
+    setWindowMinSize(const Size(800, 600));
+  }
+
   runApp(const MyApp());
 }
 
