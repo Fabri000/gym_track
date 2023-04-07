@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 
 class TextInput extends StatelessWidget {
   String hint;
@@ -13,10 +14,18 @@ class TextInput extends StatelessWidget {
       child: SizedBox(
         width: 400,
         child: TextField(
-          decoration: InputDecoration(
-            hintText: hint,
-          ),
           controller: controller,
+          decoration: InputDecoration(
+              labelText: hint,
+              floatingLabelStyle: TextStyle(
+                  color: AppColors.PRIMARY.color,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold),
+              hoverColor: AppColors.PRIMARY.color,
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.PRIMARY.color),
+              )),
+          cursorColor: AppColors.PRIMARY.color,
         ),
       ),
     );

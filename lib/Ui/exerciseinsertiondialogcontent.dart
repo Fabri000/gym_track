@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 import 'UiElements/difficultyselector.dart';
 import 'UiElements/textinput.dart';
 
@@ -25,7 +26,7 @@ class DialogContent extends StatelessWidget {
       child: Column(
         children: [
           TextInput(
-              hint: 'Name of the exercise', controller: exercisenamecontroller),
+              hint: "Name of Exercise", controller: exercisenamecontroller),
           TextInput(
               hint: 'Number of reps done', controller: numberofrepscontroller),
           TextInput(hint: 'Weight (in Kg)', controller: weightcontroller),

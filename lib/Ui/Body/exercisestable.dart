@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_track/FileManager/file_manager.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 
 class ExerciseTable extends StatelessWidget {
   @override
@@ -15,6 +16,11 @@ class ExerciseTable extends StatelessWidget {
           return ListView(
             children: [
               DataTable(
+                  border: TableBorder.all(color: AppColors.DARK.color),
+                  headingRowColor:
+                      MaterialStatePropertyAll(AppColors.PRIMARY.color),
+                  dataRowColor: const MaterialStatePropertyAll(Colors.white),
+                  headingTextStyle: const TextStyle(fontSize: 17),
                   columns: generateColumn(snapshot.data!.first),
                   rows: generateRows(snapshot.data!))
             ],
@@ -43,7 +49,9 @@ class ExerciseTable extends StatelessWidget {
 
   List<DataCell> createCells(List<String> elements) {
     List<DataCell> cells = [];
-    elements.forEach((element) => cells.add(DataCell(Text(element))));
+    elements.forEach((element) => cells.add(DataCell(Text(element,
+        style:
+            TextStyle(color: AppColors.CONTENT_TEXT.color, fontSize: 15.0)))));
     return cells;
   }
 }

@@ -4,7 +4,7 @@ import 'package:gym_track/Objects/exercises.dart';
 
 class FileManager {
   String filename = 'ExerciceHistory.csv';
-  String header = 'date,exercise,reps,weight (Kg),difficulty,rest_time(sec)\n';
+  String header = 'Date,Exercise,Reps,Weight(Kg),Difficulty,Rest Time(sec)\n';
   static FileManager _instance = FileManager._();
 
   FileManager._() {

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 import 'package:gym_track/Ui/Body/exercisestable.dart';
 import 'package:gym_track/Ui/exerciseinsertiondialog.dart';
 
@@ -15,6 +16,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     _table = ExerciseTable();
     OutlinedButton addnew = OutlinedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(AppColors.PRIMARY.color)),
         onPressed: () {
           showDialog(
                   context: context,
@@ -25,14 +28,17 @@ class _HomePageState extends State<HomePage> {
             });
           });
         },
-        child: const Text("Add new Exercise",
-            style: TextStyle(fontSize: 20, color: Colors.green)));
+        child: Text("Add new Exercise",
+            style: TextStyle(fontSize: 20, color: AppColors.TEXT_LIGHT.color)));
     OutlinedButton quit = OutlinedButton(
+        style: ButtonStyle(
+            backgroundColor:
+                MaterialStatePropertyAll(AppColors.SECONDARY.color)),
         onPressed: () {
           exit(0);
         },
-        child: const Text("Quit",
-            style: TextStyle(fontSize: 20, color: Colors.red)));
+        child: Text("Quit",
+            style: TextStyle(fontSize: 20, color: AppColors.TEXT_LIGHT.color)));
     return Scaffold(
       body: Center(
         child: Column(

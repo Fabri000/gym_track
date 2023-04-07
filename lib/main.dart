@@ -10,7 +10,7 @@ void main() {
   if (Platform.isWindows || Platform.isLinux) {
     setWindowTitle('Gym Tracker');
     setWindowMaxSize(const Size(1920, 1080));
-    setWindowMinSize(const Size(800, 600));
+    setWindowMinSize(const Size(900, 700));
   }
 
   runApp(const MyApp());

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 import 'package:gym_track/Ui/exerciseinsertiondialogcontent.dart';
 import '../FileManager/file_manager.dart';
 import '../Objects/exercises.dart';
@@ -24,11 +25,11 @@ class ExerciseInsertionDialog extends StatelessWidget {
           Navigator.pop(context);
         },
         style: ButtonStyle(
-          fixedSize: MaterialStateProperty.all(const Size(100, 40)),
-        ),
-        child: const Text(
+            fixedSize: MaterialStateProperty.all(const Size(100, 40)),
+            backgroundColor: MaterialStatePropertyAll(AppColors.PRIMARY.color)),
+        child: Text(
           "Insert",
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 20, color: AppColors.TEXT_LIGHT.color),
         ));
     return AlertDialog(
       title: const Text("Insert new exercise", style: TextStyle(fontSize: 25)),
