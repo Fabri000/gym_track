@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 import 'package:gym_track/Ui/mainpage.dart';
 import 'package:window_size/window_size.dart';
 
@@ -23,6 +24,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo', theme: ThemeData.dark(), home: HomePage());
+        title: 'Flutter Demo',
+        theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.BACKGROUND.color,
+            dialogBackgroundColor: AppColors.BACKGROUND.color),
+        home: HomePage());
   }
 }
