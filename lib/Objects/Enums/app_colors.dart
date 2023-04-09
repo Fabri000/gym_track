@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 enum AppColors {
-  PRIMARY(Color(0xFFFA46F4)),
-  SECONDARY(Color(0xFFAC84A8)),
-  DARK(Color(0xFF241823)),
-  CONTENT_TEXT(Colors.black),
-  TEXT_LIGHT(Color(0xFFFFF5FF)),
-  BACKGROUND(Color(0xFF7C7B9D));
+  PRIMARY(Color(0xFF9163F2)),
+  SECONDARY(Color(0xFF52498C)),
+  DARK(Color(0xFF492359)),
+  CONTENT_TEXT(Color(0xFF222426)),
+  LIGHT(Color(0xFFE9EFF2)),
+  BACKGROUND(Color(0xFF2B2D42));
 
+//2B2D42 alternative background
+//353940 background
   const AppColors(this.color);
   final Color color;
 }

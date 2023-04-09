@@ -16,15 +16,20 @@ class TextInput extends StatelessWidget {
         child: TextField(
           controller: controller,
           decoration: InputDecoration(
-              labelText: hint,
-              floatingLabelStyle: TextStyle(
-                  color: AppColors.PRIMARY.color,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold),
-              hoverColor: AppColors.PRIMARY.color,
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.PRIMARY.color),
-              )),
+            labelText: hint,
+            floatingLabelStyle: TextStyle(
+                color: AppColors.PRIMARY.color,
+                fontSize: 17,
+                fontWeight: FontWeight.bold),
+            hoverColor: AppColors.PRIMARY.color,
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: AppColors.PRIMARY.color),
+            ),
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.LIGHT.color)),
+            labelStyle: TextStyle(
+                color: AppColors.LIGHT.color, fontWeight: FontWeight.bold),
+          ),
           cursorColor: AppColors.PRIMARY.color,
         ),
       ),

@@ -29,10 +29,11 @@ class ExerciseInsertionDialog extends StatelessWidget {
             backgroundColor: MaterialStatePropertyAll(AppColors.PRIMARY.color)),
         child: Text(
           "Insert",
-          style: TextStyle(fontSize: 20, color: AppColors.TEXT_LIGHT.color),
+          style: TextStyle(fontSize: 20, color: AppColors.LIGHT.color),
         ));
     return AlertDialog(
-      title: const Text("Insert new exercise", style: TextStyle(fontSize: 25)),
+      title: Text("Insert new exercise",
+          style: TextStyle(fontSize: 25, color: AppColors.LIGHT.color)),
       content: DialogContent(
           exercisenamecontroller: exercisenamecontroller,
           numberofrepscontroller: numberofrepscontroller,

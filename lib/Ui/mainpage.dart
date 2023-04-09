@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
         child: Text("Add new Exercise",
-            style: TextStyle(fontSize: 20, color: AppColors.TEXT_LIGHT.color)));
+            style: TextStyle(fontSize: 20, color: AppColors.LIGHT.color)));
     OutlinedButton quit = OutlinedButton(
         style: ButtonStyle(
             backgroundColor:
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           exit(0);
         },
         child: Text("Quit",
-            style: TextStyle(fontSize: 20, color: AppColors.TEXT_LIGHT.color)));
+            style: TextStyle(fontSize: 20, color: AppColors.LIGHT.color)));
     return Scaffold(
       body: Center(
         child: Column(

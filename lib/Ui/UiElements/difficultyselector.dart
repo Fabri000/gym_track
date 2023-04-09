@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_track/Objects/Enums/app_colors.dart';
 import 'package:gym_track/Objects/Enums/exercises_difficulty.dart';
 
 class DifficultySelector extends StatefulWidget {
@@ -31,6 +32,9 @@ class _DifficultySelectorState extends State<DifficultySelector> {
             _currentdifficulty = newDifficulty!;
           });
         },
+        style: TextStyle(
+            color: AppColors.LIGHT.color, fontWeight: FontWeight.bold),
+        dropdownColor: AppColors.BACKGROUND.color,
         items: Difficulty.values.map((Difficulty difficulty) {
           return DropdownMenuItem<Difficulty>(
               value: difficulty, child: Text(difficulty.toShortString()));

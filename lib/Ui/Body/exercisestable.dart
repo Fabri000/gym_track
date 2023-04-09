@@ -19,7 +19,7 @@ class ExerciseTable extends StatelessWidget {
                   border: TableBorder.all(color: AppColors.DARK.color),
                   headingRowColor:
                       MaterialStatePropertyAll(AppColors.PRIMARY.color),
-                  dataRowColor: const MaterialStatePropertyAll(Colors.white),
+                  dataRowColor: MaterialStatePropertyAll(AppColors.LIGHT.color),
                   headingTextStyle: const TextStyle(fontSize: 17),
                   columns: generateColumn(snapshot.data!.first),
                   rows: generateRows(snapshot.data!))
