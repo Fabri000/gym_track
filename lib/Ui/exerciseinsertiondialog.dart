@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_track/Objects/Enums/app_colors.dart';
+import 'package:gym_track/Ui/UiElements/failurecheckbox.dart';
 import 'package:gym_track/Ui/exerciseinsertiondialogcontent.dart';
 import '../FileManager/file_manager.dart';
 import '../Objects/exercises.dart';
@@ -11,6 +12,7 @@ class ExerciseInsertionDialog extends StatelessWidget {
   TextEditingController weightcontroller = TextEditingController();
   DifficultySelector difficultySelector = DifficultySelector();
   TextEditingController resttimescontroller = TextEditingController();
+  FailureCheckBox failureCheckBox = FailureCheckBox();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,8 @@ class ExerciseInsertionDialog extends StatelessWidget {
               int.parse(numberofrepscontroller.text),
               double.parse(weightcontroller.text),
               int.parse(resttimescontroller.text),
-              difficultySelector.getCurrentDifficulty()));
+              difficultySelector.getCurrentDifficulty(),
+              failureCheckBox.isChecked()));
           Navigator.pop(context);
         },
         style: ButtonStyle(
@@ -39,7 +42,8 @@ class ExerciseInsertionDialog extends StatelessWidget {
           numberofrepscontroller: numberofrepscontroller,
           weightcontroller: weightcontroller,
           difficultySelector: difficultySelector,
-          resttimescontroller: resttimescontroller),
+          resttimescontroller: resttimescontroller,
+          failureCheckBox: failureCheckBox),
       actions: [insertbutton],
     );
   }

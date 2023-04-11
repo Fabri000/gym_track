@@ -15,6 +15,7 @@ class TextInput extends StatelessWidget {
         width: 400,
         child: TextField(
           controller: controller,
+          style: TextStyle(color: AppColors.PRIMARY.color),
           decoration: InputDecoration(
             labelText: hint,
             floatingLabelStyle: TextStyle(

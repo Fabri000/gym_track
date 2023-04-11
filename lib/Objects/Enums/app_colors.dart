@@ -6,7 +6,7 @@ enum AppColors {
   DARK(Color(0xFF492359)),
   CONTENT_TEXT(Color(0xFF222426)),
   LIGHT(Color(0xFFE9EFF2)),
-  BACKGROUND(Color(0xFF2B2D42));
+  BACKGROUND(Color(0xFF353940));
 
 //2B2D42 alternative background
 //353940 background
