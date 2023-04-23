@@ -4,6 +4,8 @@ import 'package:gym_track/Objects/Enums/app_colors.dart';
 import 'package:gym_track/Ui/Body/exercisestable.dart';
 import 'package:gym_track/Ui/exerciseinsertiondialog.dart';
 
+import '../FileManager/file_manager.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
@@ -22,10 +24,13 @@ class _HomePageState extends State<HomePage> {
           showDialog(
                   context: context,
                   builder: (BuildContext context) => ExerciseInsertionDialog())
-              .then((_) {
-            setState(() {
-              _table = ExerciseTable();
-            });
+              .then((ris) {
+            if (ris != null) {
+              FileManager.instance.addExercise(ris);
+              setState(() {
+                _table = ExerciseTable();
+              });
+            }
           });
         },
         child: Text("Add new Exercise",

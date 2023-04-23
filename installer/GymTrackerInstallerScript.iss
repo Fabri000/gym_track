@@ -2,14 +2,14 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gym Tracker"
-#define MyAppVersion "1.0"
-#define MyAppPublisher "AlienSK"
+#define MyAppVersion "1"
+#define MyAppPublisher "AlienSK dev"
 #define MyAppExeName "gym_track.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{B14830B9-9EF0-4D85-9A62-C14A6607D642}
+AppId={{4BB4786D-8914-4B5B-9823-86FE24DDEC89}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -18,8 +18,8 @@ DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\fabri\Desktop
-OutputBaseFilename=GymTrackerInstaller
+OutputDir=D:\file\repositories\gym_track\installer
+OutputBaseFilename=mysetup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
