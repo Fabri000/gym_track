@@ -1,6 +1,6 @@
-# gym_track
+# GymTrack
 
-A new Flutter project.
+A simple app to keep track of yours workout with infos like exercises name,weight used, rest taken beetwen sets, failure and total reps. In future others functionality will be added.
 
 ## Getting Started
 
