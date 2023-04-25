@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gym_track/Objects/Enums/app_colors.dart';
 
 class TextInput extends StatelessWidget {
@@ -15,6 +16,7 @@ class TextInput extends StatelessWidget {
         width: 400,
         child: TextField(
           controller: controller,
+          inputFormatters: [LengthLimitingTextInputFormatter(25)],
           style: TextStyle(color: AppColors.PRIMARY.color),
           decoration: InputDecoration(
             labelText: hint,
